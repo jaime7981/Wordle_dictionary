@@ -49,7 +49,12 @@ def main():
 
         time_init = time.time()
 
-        response = Play(game_dictionary, word_length, words_count, response)
+        #Para multiples palabras usar dos dimensiones de letras usadas
+        used_letters = []
+        found_positions = []
+        posible_letters = []
+        
+        response = Play(game_dictionary, word_length, words_count, response, first_word, used_letters, found_positions, posible_letters)
 
         time_interval = time.time() - time_init
         total_time += time_interval
@@ -75,6 +80,19 @@ def character_analyzer(game_dictionary):
     char_analyzer = dict(sorted(char_analyzer.items(), key=lambda x: x[1], reverse=True))
     print(char_analyzer)
     return char_analyzer
+
+#Depending on the api response, clasify diferent results for each letter
+def AnalizeResponseChars(result_list, last_word_list, used_letters, found_positions, posible_letters):
+    for position in range(len(result_list)):
+        letter = last_word_list[position]
+        result = result_list[position]
+
+        if result == '0':
+            used_letters.append(letter)
+        elif result == '2':
+            found_positions[position] = letter
+        elif result == '1':
+            posible_letters.append(letter)
 
 def SetFirstWord(game_dictionary, word_length, characters):
     key_list = list(characters.keys())
@@ -102,6 +120,9 @@ def SetFirstWord(game_dictionary, word_length, characters):
 
     return first_results[random.randint(0, len(first_results))]
 
+def PickNewWord():
+    pass
+
 def FirstTurn(first_word):
     response = game_api.SendWord(GAME_ID, first_word)
 
@@ -113,12 +134,10 @@ def FirstTurn(first_word):
     else:
         return response
 
-def Play(game_dictionary, word_length, words_count, response):
-    new_selected_word = ''
-    
-    result = response['result']
-    words_state = response['words_state']
+def Play(game_dictionary, response, last_word, used_letters, found_positions, posible_letters):    
+    result = response['result'][0]
 
+    AnalizeResponseChars(list(result), list(last_word), used_letters, found_positions, posible_letters)
 
     #response = game_api.SendWord(GAME_ID, new_selected_word)
 

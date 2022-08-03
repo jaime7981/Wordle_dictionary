@@ -24,3 +24,7 @@ VALIDABA
 ## primer guess con filtro segun letras mas repetidas del alfabeto
 first word guess: ROCIASEN
 {'result': ['10002111'], 'words_state': [False], 'finished': False}
+
+first word guess: CENSORIA
+word pre procesing time: 0.02652263641357422
+{'result': ['02220201'], 'words_state': [False], 'finished': False}
