@@ -1,0 +1,48 @@
+
+## LISTO ##
+from click import pass_obj
+
+
+primero, obetener diccionario y filtrarlo segun el largo de la palabra
+
+## LISTO ##
+segundo, analizar caracteres del diccionario
+ver todos los caracteres que se contemplan en el diccionario
+ver que caracteres se repiten mas, cosa de que sea mas probable achuntarle a un resultado amplio para filtrar en el segundo guess.
+
+## LISTO ##
+tercero, buscar palabras que tengan la mayoria de caracteres distintos
+ojala que tenga todos los caracteres que mas se repitan.
+aparte, sacar la probabilidad de poder acertarle con la palabra segun el diccionario.
+ejemplo, palabra arise en diccionario ingles para 5 characters
+
+## LISTO ##
+Para buscar la palabra, tomar las n primeras letras mas usadas y ver si se forma una palabra con cualquier orden de ellas, comparar con el diccionario filtrado.
+si las primeras n no forman una palabra, usar n-1, saltarse la ultima y probar con la siguiente, asi hasta encontar la con mas caracteres.
+
+Nuevo aproach, por regex primero buscar que se encunetre la primera letra mas usada, luego con la segunda, asi hasta completar las n primeras iteraciones.
+
+## OTRAS OPCIONES ##
+Quizas mas adelante probar con caracteres repetidos, como passed en caso de 6 letras
+Quizas sacar dato de en que posicion se encuentra mas seguido la letra mas repetida
+
+## SE JUEGA EL PRIMER TURNO CON ESTE GUESS ##
+
+## PENDIENTE ##
+El primer aproach al problema es usar expresiones regulares para las letras que si sean asertadas.
+
+## PENDIENTE ##
+Segundo aproach, las letras que no acertaron, osea dieron 0, eliminar las palabras que las contengan esas letras.
+
+## PENDIENTE ##
+Lo mas dificil sera utilizar los 1's, es decir que una letra que si acerto este en la palabra y re acomodar ese caracter
+
+
+pasos:
+1.- eliminar palabras con letras en 0
+2.- dejar solo palabras con la letrae n la posicion correcta en 2
+3.- buscar palabras que contengan las letras en 1
+
+## JUGAR SIGUENTES TURNOS HASTA ACERTAR ##
+
+## PROBAR Y PENSAR EN OTRAS SOLUCIONES ##

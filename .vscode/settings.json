@@ -1,0 +1,10 @@
+{
+    "makefile.extensionOutputFolder": "./.vscode",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/jaimefdz/Documents/Desarrollo software",
+            "binaryPath": "/home/jaimefdz/Documents/Desarrollo software/main",
+            "binaryArgs": []
+        }
+    ]
+}

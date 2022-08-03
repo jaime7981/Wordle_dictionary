@@ -1,0 +1,26 @@
+id: 4
+word length: 8
+dict length: 174850
+basic filter: 22505
+
+char results
+{'A': 26993, 'B': 4329, 'C': 7765, 'E': 18309, 'R': 15593, 'S': 16573, 'I': 12302, 'O': 12202, 'D': 7547, 'J': 1101, 'N': 10904, 'G': 2914, 'T': 7678, 'Ñ': 346, 'L': 6753, 'É': 1748, 'Z': 958, 'Ó': 848, 'Q': 497, 'U': 5638, 'Á': 2072, 'Í': 1819, 'M': 4862, 'V': 2270, 'F': 1755, 'H': 1309, 'P': 4139, 'Y': 246, 'Ú': 93, 'Ü': 11, 'X': 452, 'Ì': 2, ' ': 4, 'K': 5, 'Ï': 1, 'W': 2}
+
+char results ordered
+{'A': 26993, 'E': 18309, 'S': 16573, 'R': 15593, 'I': 12302, 'O': 12202, 'N': 10904, 'C': 7765, 'T': 7678, 'D': 7547, 'L': 6753, 'U': 5638, 'M': 4862, 'B': 4329, 'P': 4139, 'G': 2914, 'V': 2270, 'Á': 2072, 'Í': 1819, 'F': 1755, 'É': 1748, 'H': 1309, 'J': 1101, 'Z': 958, 'Ó': 848, 'Q': 497, 'X': 452, 'Ñ': 346, 'Y': 246, 'Ú': 93, 'Ü': 11, 'K': 5, ' ': 4, 'Ì': 2, 'W': 2, 'Ï': 1}
+
+EXENTÁIS
+{'result': ['10010102'], 'words_state': [False], 'finished': False}
+
+EVALUABA
+{'result': ['10100000'], 'words_state': [False], 'finished': False}
+
+CACEROLA
+{'result': ['01011000'], 'words_state': [False], 'finished': False}
+
+VALIDABA
+{'result': ['01000000'], 'words_state': [False], 'finished': False}
+
+## primer guess con filtro segun letras mas repetidas del alfabeto
+first word guess: ROCIASEN
+{'result': ['10002111'], 'words_state': [False], 'finished': False}
