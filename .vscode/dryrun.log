@@ -1,5 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/jaimefdz/Documents/Desarrollo software'
-gcc main.cpp -o main.o -lcurl -I.
 make: Leaving directory '/home/jaimefdz/Documents/Desarrollo software'
  
+make: *** No targets specified and no makefile found.  Stop.
+

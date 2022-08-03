@@ -2,7 +2,6 @@
 ## LISTO ##
 from click import pass_obj
 
-
 primero, obetener diccionario y filtrarlo segun el largo de la palabra
 
 ## LISTO ##
@@ -28,15 +27,17 @@ Quizas sacar dato de en que posicion se encuentra mas seguido la letra mas repet
 
 ## SE JUEGA EL PRIMER TURNO CON ESTE GUESS ##
 
-## PENDIENTE ##
+## LISTO ##
 El primer aproach al problema es usar expresiones regulares para las letras que si sean asertadas.
 
-## PENDIENTE ##
+## LISTO ##
 Segundo aproach, las letras que no acertaron, osea dieron 0, eliminar las palabras que las contengan esas letras.
 
-## PENDIENTE ##
+## LISTO ##
 Lo mas dificil sera utilizar los 1's, es decir que una letra que si acerto este en la palabra y re acomodar ese caracter
 
+## PENDIENTE ##
+Eliminar palabras ya usdas
 
 pasos:
 1.- eliminar palabras con letras en 0
