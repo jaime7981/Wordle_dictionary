@@ -36,8 +36,11 @@ Segundo aproach, las letras que no acertaron, osea dieron 0, eliminar las palabr
 ## LISTO ##
 Lo mas dificil sera utilizar los 1's, es decir que una letra que si acerto este en la palabra y re acomodar ese caracter
 
-## PENDIENTE ##
+## LISTO ##
 Eliminar palabras ya usdas
+
+## PENDIENTE ##
+Eliminar letras en posicion incorrecta luego de encontrarla
 
 pasos:
 1.- eliminar palabras con letras en 0
@@ -47,3 +50,30 @@ pasos:
 ## JUGAR SIGUENTES TURNOS HASTA ACERTAR ##
 
 ## PROBAR Y PENSAR EN OTRAS SOLUCIONES ##
+
+## PENDIENTE / PROBAR ##
+Para reducir las posibilidades, escoger primero palabras que tengan las letras mas usadas
+No es muy buena opcion, se vuelve eficiente para palabras cortas.
+
+Quizas agregar "pesos" a las opciones segun la letra mas repetida, luego escoger de forma random las las palbras
+
+
+probar conjuntos de palabras mas repetidos ex. (b r a _ _)
+
+
+Prueba Lunes
+1. 8
+2. 6
+3. 7
+4. 8
+5. 4
+6. 3
+7. 3
+8. 3
+
+Parcial: 44
+Mejor resultado del curso: 32
+
+Analisis Parcial: El algoritmo funciona de manera poco eficinete para las palabras mas cortas.
+Se debera hacer un analizis estadistico para sacar la probabilidad o esperaza de las palabras segun las letras mas comunes.
+

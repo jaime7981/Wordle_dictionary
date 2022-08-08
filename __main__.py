@@ -1,7 +1,7 @@
 import game_api, random, time, re
 
 #If GAME_ID == -1 show all games
-GAME_ID = 4
+GAME_ID = -1
 turns = 1
 used_words = []
 
@@ -60,7 +60,7 @@ def main():
         for char in range(word_length):
             found_positions.append('.')
 
-        response = Play(game_dictionary, response, first_word, used_letters, found_positions, posible_letters)
+        response = Play(game_dictionary, response, first_word, used_letters, found_positions, posible_letters, game_chars)
 
         time_interval = time.time() - time_init
         total_time += time_interval
@@ -88,7 +88,7 @@ def character_analyzer(game_dictionary):
     return char_analyzer
 
 #Depending on the api response, clasify diferent results for each letter
-def AnalizeResponseChars(result_list, last_word_list, used_letters, found_positions, posible_letters):
+def AnalizeResponseChars(result_list, last_word_list, used_letters, found_positions, posible_letters, game_chars):
     for position in range(len(result_list)):
         letter = last_word_list[position]
         result = result_list[position]
@@ -96,11 +96,17 @@ def AnalizeResponseChars(result_list, last_word_list, used_letters, found_positi
         if result == '0':
             if letter not in used_letters:
                 used_letters.append(letter)
+                if letter not in posible_letters:
+                    del game_chars[letter]
         elif result == '2':
             found_positions[position] = letter
+            if letter not in posible_letters:
+                posible_letters.append(letter)
+                del game_chars[letter]
         elif result == '1':
             if letter not in posible_letters:
                 posible_letters.append(letter)
+                del game_chars[letter]
 
 def SetFirstWord(game_dictionary, word_length, characters):
     key_list = list(characters.keys())
@@ -128,7 +134,7 @@ def SetFirstWord(game_dictionary, word_length, characters):
 
     return first_results[random.randint(0, len(first_results) - 1)]
 
-def PickNewWord(game_dictionary, used_letters, found_positions, posible_letters):
+def PickNewWord(game_dictionary, used_letters, found_positions, posible_letters, game_chars):
     regex = ''.join(found_positions)
     posible_words = []
     aux_list = []
@@ -159,10 +165,14 @@ def PickNewWord(game_dictionary, used_letters, found_positions, posible_letters)
             posible_words = aux_list
         aux_list = []
 
+    #eliminar palabras usadas
+    for used_word in used_words:
+        if used_word in posible_words:
+            posible_words.remove(used_word)
+
     print(len(posible_words))
 
     return(posible_words[random.randint(0, len(posible_words) - 1)])
-    
 
 def FirstTurn(first_word):
     global turns
@@ -173,24 +183,25 @@ def FirstTurn(first_word):
     if finished == True:
         print('game ended')
         print(used_words)
-        game_api.ResetGame(GAME_ID)
+        #game_api.ResetGame(GAME_ID)
         exit()
     else:
         turns += 1
         return response
 
-def Play(game_dictionary, response, last_word, used_letters, found_positions, posible_letters):    
+def Play(game_dictionary, response, last_word, used_letters, found_positions, posible_letters, game_chars):    
     global turns
     print('turn: ' + str(turns))
     result = response['result'][0]
 
-    AnalizeResponseChars(list(result), list(last_word), used_letters, found_positions, posible_letters)
+    AnalizeResponseChars(list(result), list(last_word), used_letters, found_positions, posible_letters, game_chars)
 
     print(found_positions)
     print(posible_letters)
     print(used_letters)
+    print(game_chars)
 
-    new_selected_word = PickNewWord(game_dictionary, used_letters, found_positions, posible_letters)
+    new_selected_word = PickNewWord(game_dictionary, used_letters, found_positions, posible_letters, game_chars)
     print(new_selected_word)
     used_words.append(new_selected_word)
     response = game_api.SendWord(GAME_ID, new_selected_word)
@@ -200,11 +211,11 @@ def Play(game_dictionary, response, last_word, used_letters, found_positions, po
     if response['finished'] == True:
         print('game ended')
         print(used_words)
-        game_api.ResetGame(GAME_ID)
+        #game_api.ResetGame(GAME_ID)
         exit()
     else:
         turns += 1
-        Play(game_dictionary, response, new_selected_word, used_letters, found_positions, posible_letters)
+        Play(game_dictionary, response, new_selected_word, used_letters, found_positions, posible_letters, game_chars)
         print('Recursive turn')
 
 if __name__ == '__main__':
