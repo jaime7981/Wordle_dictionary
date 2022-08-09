@@ -1,7 +1,11 @@
-import requests, numpy, os.path
+import requests, numpy, os.path, json
 
 BASE_URL = 'https://pds-wordie.herokuapp.com'
-PLAYER_KEY = 'GGOQBVS'
+PLAYER_KEY = ''
+
+with open('vars/secret_vars.json') as f:
+    json_data = json.load(f)
+    PLAYER_KEY = json_data['p_key']
 
 #Get Active Games
 def ShowGames():
@@ -9,6 +13,23 @@ def ShowGames():
     games = response.json()['games']
     for g in games:
         print(g)
+
+def GetGamesIds():
+    response = requests.get(f'{BASE_URL}/api/games/')
+    games = response.json()['games']
+    ids_list = []
+    for g in games:
+        ids_list.append(g['id'])
+    return ids_list
+
+def GetOneWordGamesIds():
+    response = requests.get(f'{BASE_URL}/api/games/')
+    games = response.json()['games']
+    ids_list = []
+    for g in games:
+        if g['words_count'] == 1:
+            ids_list.append(g['id'])
+    return ids_list
 
 def SelectGame(game_id):
     response = requests.get(f'{BASE_URL}/api/games/')

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Aug  8 15:34:06 2022
+# Make data base, printed on Tue Aug  9 09:38:14 2022
 
 # Variables
 
@@ -47,7 +47,7 @@ XDG_DATA_DIRS = /usr/share/Lubuntu:/usr/local/share:/usr/share:/var/lib/snapd/de
 # environment
 VSCODE_CODE_CACHE_PATH = /home/jaimefdz/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # environment
 LANG = C
 # environment
@@ -69,7 +69,7 @@ LESSOPEN = | /usr/bin/lesspipe %s
 # environment
 MFLAGS = -pqrR
 # environment
-SSH_AUTH_SOCK = /tmp/ssh-XXXXXX65fCtI/agent.1832
+SSH_AUTH_SOCK = /tmp/ssh-XXXXXXEHhbS6/agent.1861
 # default
 .SHELLFLAGS := -c
 # environment
@@ -83,7 +83,7 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5127
+VSCODE_PID = 2135
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -179,7 +179,7 @@ MAKE_VERSION := 4.3
 # environment
 LC_MEASUREMENT = es_CL.UTF-8
 # environment
-SSH_AGENT_PID = 1879
+SSH_AGENT_PID = 1907
 # environment
 _ = /usr/share/code/code
 # environment
@@ -280,9 +280,6 @@ GNUmakefile:
 # VPATH Search Paths
 
 # No 'vpath' search paths.
- 
-make: *** No rule to make target 'all'.  Stop.
-
 
 # No general ('VPATH' variable) search path.
 
@@ -291,7 +288,10 @@ make: *** No rule to make target 'all'.  Stop.
 
 # strcache performance: lookups = 22 / hit rate = 13%
 # hash-table stats:
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 # Load=19/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Mon Aug  8 15:34:06 2022
+# Finished Make data base on Tue Aug  9 09:38:14 2022
 
  

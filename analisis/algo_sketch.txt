@@ -58,6 +58,9 @@ No es muy buena opcion, se vuelve eficiente para palabras cortas.
 Quizas agregar "pesos" a las opciones segun la letra mas repetida, luego escoger de forma random las las palbras
 
 
+Realizar analizis de diccionario cada vez que se quiera buscar una palabra, a aprtir de la nueva lista de palabras filtradas
+
+
 probar conjuntos de palabras mas repetidos ex. (b r a _ _)
 
 
@@ -76,4 +79,23 @@ Mejor resultado del curso: 32
 
 Analisis Parcial: El algoritmo funciona de manera poco eficinete para las palabras mas cortas.
 Se debera hacer un analizis estadistico para sacar la probabilidad o esperaza de las palabras segun las letras mas comunes.
+
+
+netherlands, id 33, word length 5, 
+1. 5
+2. 3
+3. 3
+4. 4
+5. 6
+6. 9
+7. 5
+
+after changes
+1. 
+
+eliminar las letras ya conocidas del diccionario counter
+
+esta repitinedo palabras ya usadas
+
+
 
