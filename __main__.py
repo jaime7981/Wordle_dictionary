@@ -32,15 +32,22 @@ def main_game(game_id):
 
         #Para multiples palabras usar dos dimensiones de letras usadas
         used_letters = []
-        found_positions = []
+        found_positions = PrepareWordsPositions(words_count, word_length)
         posible_letters = []
-        
-        for char in range(word_length):
-            found_positions.append('.')
 
-        Play(game_dictionary, response, first_word, used_letters, found_positions, posible_letters, id)
+
+        Play(game_dictionary, response, first_word, used_letters, found_positions, posible_letters, id, words_count)
         return turns
 
+
+def PrepareWordsPositions(words_count, word_length):
+    found_positions = []
+    for a in range(words_count):
+        aux_list = []
+        for b in range(word_length):
+            aux_list.append('.')
+        found_positions.append(aux_list)
+    return found_positions
 
 def basic_filter(game_dictionary, word_length):
     new_dict = []
@@ -167,17 +174,26 @@ def FirstTurn(first_word, game_id):
         turns += 1
         return response
 
-def Play(game_dictionary, response, last_word, used_letters, found_positions, posible_letters, game_id):    
+def Play(game_dictionary, response, last_word, used_letters, found_positions, posible_letters, game_id, words_count):   
     global turns
     result = response['result'][0]
 
-    AnalizeResponseChars(list(result), list(last_word), used_letters, found_positions, posible_letters)
+    for multiple_word in range(words_count):
+        AnalizeResponseChars(list(result), list(last_word), used_letters, found_positions[multiple_word], posible_letters)
 
-    new_selected_word = PickNewWord(game_dictionary, used_letters, found_positions, posible_letters, len(last_word))
+    print('Char Analizaer Working?')
+
+    for multiple_word in range(words_count):
+        new_selected_word = PickNewWord(game_dictionary, used_letters, found_positions[multiple_word], posible_letters, len(last_word))
+    
     new_selected_word = new_selected_word[random.randint(0, len(new_selected_word) - 1)]
     used_words.append(new_selected_word)
 
+    print('Pick New Word Working?')
+
     response = game_api.SendWord(game_id, new_selected_word)
+
+    print('Send Word Working?')
 
     for info in [('\nturn: ' + str(turns)), found_positions, posible_letters, used_letters, new_selected_word, response]:
         print(info)
@@ -188,10 +204,10 @@ def Play(game_dictionary, response, last_word, used_letters, found_positions, po
         game_api.ResetGame(game_id)
     else:
         turns += 1
-        Play(game_dictionary, response, new_selected_word, used_letters, found_positions, posible_letters, id)
+        Play(game_dictionary, response, new_selected_word, used_letters, found_positions, posible_letters, id, words_count)
 
 if __name__ == '__main__':
-    ids_list = game_api.GetOneWordGamesIds()
+    ids_list = game_api.GetGamesIds()
     game_count = 1
 
     for id in ids_list:

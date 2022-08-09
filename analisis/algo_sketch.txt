@@ -34,26 +34,19 @@ El primer aproach al problema es usar expresiones regulares para las letras que 
 Segundo aproach, las letras que no acertaron, osea dieron 0, eliminar las palabras que las contengan esas letras.
 
 ## LISTO ##
-Lo mas dificil sera utilizar los 1's, es decir que una letra que si acerto este en la palabra y re acomodar ese caracter
+Utilizar los 1's, es decir que una letra que si acerto este en la palabra y re acomodar ese caracter
 
 ## LISTO ##
 Eliminar palabras ya usdas
 
-## PENDIENTE ##
-Eliminar letras en posicion incorrecta luego de encontrarla
 
 pasos:
 1.- eliminar palabras con letras en 0
 2.- dejar solo palabras con la letrae n la posicion correcta en 2
 3.- buscar palabras que contengan las letras en 1
 
-## JUGAR SIGUENTES TURNOS HASTA ACERTAR ##
-
-## PROBAR Y PENSAR EN OTRAS SOLUCIONES ##
-
-## PENDIENTE / PROBAR ##
+## LISTO ##
 Para reducir las posibilidades, escoger primero palabras que tengan las letras mas usadas
-No es muy buena opcion, se vuelve eficiente para palabras cortas.
 
 Quizas agregar "pesos" a las opciones segun la letra mas repetida, luego escoger de forma random las las palbras
 
@@ -61,7 +54,7 @@ Quizas agregar "pesos" a las opciones segun la letra mas repetida, luego escoger
 Realizar analizis de diccionario cada vez que se quiera buscar una palabra, a aprtir de la nueva lista de palabras filtradas
 
 
-probar conjuntos de palabras mas repetidos ex. (b r a _ _)
+probar conjuntos de palabras mas repetidos para el primer turno ex. (b r a _ _)
 
 
 Prueba Lunes
@@ -93,9 +86,5 @@ netherlands, id 33, word length 5,
 after changes
 1. 
 
-eliminar las letras ya conocidas del diccionario counter
-
-esta repitinedo palabras ya usadas
-
-
+para multiples palabras, tener cuidado con la funcion PickNewWord
 
