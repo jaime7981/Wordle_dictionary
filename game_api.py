@@ -22,12 +22,12 @@ def GetGamesIds():
         ids_list.append(g['id'])
     return ids_list
 
-def GetOneWordGamesIds():
+def GetCountWordGamesIds(word_count):
     response = requests.get(f'{BASE_URL}/api/games/')
     games = response.json()['games']
     ids_list = []
     for g in games:
-        if g['words_count'] == 1:
+        if g['words_count'] == word_count:
             ids_list.append(g['id'])
     return ids_list
 
@@ -44,7 +44,6 @@ def SelectGame(game_id):
 def LoadDictionary(language):
     lang_filename = 'static/' + language.split('/')[2]
     if os.path.isfile(lang_filename):
-        print ("File exist")
         try:
             f = open(lang_filename)
         except IOError:
@@ -79,7 +78,7 @@ def SendWord(game_id, word):
         'word': word
     }
     r = requests.post(f'{BASE_URL}/api/play/', data=data)
-    print(r.json())
+    #print(r.json())
     return r.json()
 
 def ResetGame(game_id):

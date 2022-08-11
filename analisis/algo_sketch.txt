@@ -83,8 +83,31 @@ netherlands, id 33, word length 5,
 6. 9
 7. 5
 
-after changes
-1. 
 
 para multiples palabras, tener cuidado con la funcion PickNewWord
+
+
+De la lista de posibles palabras, escoger la lista con menor tamano
+
+1.
+16 juegos
+158 turnos
+
+2.
+16 juegos
+163 turnos
+
+3.
+16 juegos
+150 turnos
+time: 282,14 sec
+
+4.
+16 juegos
+156 turnos
+time: 4.85 min
+
+16  games played
+Total turns all games:  173
+Total time: 5.15 minutes
 
