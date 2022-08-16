@@ -107,7 +107,27 @@ time: 282,14 sec
 156 turnos
 time: 4.85 min
 
+5.
 16  games played
 Total turns all games:  173
 Total time: 5.15 minutes
+
+6.
+16  games played
+Total turns all games:  159
+Total time: 5.3315863331158955 minutes
+
+7.
+16  games played
+Total turns all games:  156
+Total time: 4.896868308385213 minutes
+
+
+Without resetGames()
+
+8.
+16  games played
+Total turns all games:  163
+Total time: 4.53560657898585 minutes
+
 

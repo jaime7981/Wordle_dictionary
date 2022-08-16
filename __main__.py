@@ -168,7 +168,7 @@ def FirstTurn(first_word, game_id):
     if finished == True:
         print('game ended')
         print(used_words, '\n')
-        game_api.ResetGame(game_id)
+        #game_api.ResetGame(game_id)
     else:
         turns += 1
         return response
@@ -209,7 +209,7 @@ def Play(game_dictionary, response, last_word, used_letters, found_positions, po
     if response['finished'] == True:
         print('game ended')
         print(used_words, '\n')
-        game_api.ResetGame(game_id)
+        #game_api.ResetGame(game_id)
     else:
         turns += 1
         Play(game_dictionary, response, new_selected_word, used_letters, found_positions, posible_letters, id, words_count)
@@ -225,6 +225,7 @@ if __name__ == '__main__':
         total_turns += turns_result
         game_count += 1
         ResetGlobalVars()
+        game_api.ResetGame(id)
 
         print('game count: ', game_count)
         print('game id: ', id)
